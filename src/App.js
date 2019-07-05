@@ -27,9 +27,9 @@ class App extends React.Component {
             ...snapShot.data(),
           });
         });
-      } else {
-        setCurrentUser(userAuth);
-      }
+      } 
+      
+      setCurrentUser(userAuth);
     });
   }
 
@@ -48,7 +48,11 @@ class App extends React.Component {
             exact
             path="/signin"
             render={() =>
-              this.props.currentUser ? <Redirect to="/" /> : <Account />
+              this.props.currentUser ? (
+              <Redirect to="/" />
+              ) : (
+              <Account />
+              )
             }
           />
         </Switch>
